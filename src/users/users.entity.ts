@@ -16,7 +16,7 @@ export class User {
   @Column({ length: 50, unique: true })
   email: string;
 
-  @Column({ length: 50 })
+  @Column({ length: 100 })
   password: string;
 
   @Column({ type: 'boolean', default: false })

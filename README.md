@@ -1,7 +1,7 @@
 
 ## Back-end Challenge-kubide
 
-Con esta API, mediante peticiones HTTP  podemos realizar distintas acciones con sus validaciones correspondientes.
+Con esta API desarrollada en NestJS, mediante peticiones HTTP, podemos realizar distintas acciones con sus validaciones correspondientes.
 
 ## Features
 

@@ -15,7 +15,7 @@ Con esta API desarrollada en NestJS, mediante peticiones HTTP, podemos realizar 
 
 ## Collections
 
-[Endpoints ](https://www.getpostman.com/collections/10ace6d22993eda5aafc)
+[Endpoints ](https://www.postman.com/zanotti86/workspace/api-challenge-kubide/collection/17690254-736596d2-c166-4c15-99d8-d616ad41c34f)
 
 
 ## Installation

@@ -27,4 +27,12 @@ export class UsersRepository extends Repository<User> {
   async findOneByEmail(email: string): Promise<User> {
     return await this.findOne({ email });
   }
+
+  async getAllUsers(): Promise<User[]> {
+    return await this.find();
+  }
+
+  async getMyProfile(userId: string): Promise<User> {
+    return await this.findOne(userId);
+  }
 }

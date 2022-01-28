@@ -3,8 +3,10 @@ import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { LoginDto } from './dto/login.dto';
 import { RegisterUserDto } from './dto/register-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 import { EnconderService } from './enconder.service';
 import { JwtPayload } from './jwt-payload.interface';
+import { User } from './users.entity';
 import { UsersRepository } from './users.repository';
 
 @Injectable()
@@ -40,5 +42,13 @@ export class AuthService {
       return { accesToken };
     }
     throw new UnauthorizedException('Invalid credentials');
+  }
+
+  async getAllUsers(): Promise<User[]> {
+    return await this.usersRepository.getAllUsers();
+  }
+
+  async getMyProfile(userId: string): Promise<User> {
+    return await this.usersRepository.getMyProfile(userId);
   }
 }

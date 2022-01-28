@@ -2,7 +2,6 @@ import {
   ConflictException,
   InternalServerErrorException,
 } from '@nestjs/common';
-import { RegisterUserDto } from './dto/register-user.dto';
 import { EntityRepository, Repository } from 'typeorm';
 import { User } from './users.entity';
 
@@ -34,5 +33,10 @@ export class UsersRepository extends Repository<User> {
 
   async getMyProfile(userId: string): Promise<User> {
     return await this.findOne(userId);
+  }
+
+  async updateUser(userId: User): Promise<void> {
+    const user = await this.findOne(userId);
+    await this.save(user);
   }
 }

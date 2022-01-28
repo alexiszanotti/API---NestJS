@@ -2,29 +2,42 @@ import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { LoginDto } from './dto/login.dto';
 import { RegisterUserDto } from './dto/register-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { AuthService } from './users.service';
+import { UserService } from './users.service';
 
 @Controller('users')
-export class AuthController {
-  constructor(private authService: AuthService) {}
+export class UserController {
+  constructor(private userService: UserService) {}
 
   @Post('/register')
   register(@Body() registerUserDto: RegisterUserDto): Promise<void> {
-    return this.authService.registerUser(registerUserDto);
+    return this.userService.registerUser(registerUserDto);
   }
 
   @Post('/login')
   login(@Body() loginDto: LoginDto): Promise<{ accesToken: string }> {
-    return this.authService.login(loginDto);
+    return this.userService.login(loginDto);
   }
 
-  @Get('/all')
+  @Get()
   getAll(): Promise<any> {
-    return this.authService.getAllUsers();
+    return this.userService.getAllUsers();
+  }
+
+  @Get('/active')
+  getActive(): Promise<any> {
+    return this.userService.getUsersActive();
   }
 
   @Get(':userId')
   getMyProfile(@Param('userId') userId: string): Promise<any> {
-    return this.authService.getMyProfile(userId);
+    return this.userService.getMyProfile(userId);
+  }
+
+  @Patch(':userId')
+  updateUser(
+    @Param('userId') userId: string,
+    @Body() updateUserDto: UpdateUserDto,
+  ): Promise<any> {
+    return this.userService.updateUser(userId, updateUserDto);
   }
 }

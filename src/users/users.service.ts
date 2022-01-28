@@ -10,7 +10,7 @@ import { User } from './users.entity';
 import { UsersRepository } from './users.repository';
 
 @Injectable()
-export class AuthService {
+export class UserService {
   constructor(
     @InjectRepository(UsersRepository)
     private usersRepository: UsersRepository,
@@ -50,5 +50,22 @@ export class AuthService {
 
   async getMyProfile(userId: string): Promise<User> {
     return await this.usersRepository.getMyProfile(userId);
+  }
+
+  async updateUser(userId: string, updateUserDto: UpdateUserDto) {
+    const user = await this.getMyProfile(userId);
+    const editUser = Object.assign(user, updateUserDto);
+    return await this.usersRepository.save(editUser);
+  }
+
+  async getUsersActive(): Promise<User[]> {
+    const users = await this.usersRepository.getAllUsers();
+    const usersActive = users.filter((user) => user.isActive === true);
+
+    if (usersActive.length === 0) {
+      throw new UnauthorizedException('No users active');
+    }
+
+    return usersActive;
   }
 }

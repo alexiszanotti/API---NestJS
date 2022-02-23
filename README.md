@@ -1,5 +1,5 @@
 
-## Back-end Challenge-kubide
+## API - NestJS
 
 Con esta API desarrollada en NestJS, mediante peticiones HTTP, podemos realizar distintas acciones con sus validaciones correspondientes.
 

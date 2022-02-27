@@ -29,7 +29,7 @@ instalamos todas las dependencias necesarias mediante el siguiente comando.
 Tambien necesitaremos crear un contenedor (Docker) con una instancia de mysql con el siguiente comando.
 
 ```bash
-  docker run --name mysql-nestjs-challenge -p 5000:3306 -e MYSQL_ROOT_PASSWORD=challenge -e MYSQL_DATABASE=database -d mysql:8.0.26 
+  docker run --name mysql-nestjs-api -p 5000:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=database -d mysql:8.0.26 
 ```  
 
 ## Running the app

@@ -15,7 +15,7 @@ export class UserService {
     @InjectRepository(UsersRepository)
     private usersRepository: UsersRepository,
     private encodeService: EnconderService,
-    private jwtService: JwtService,
+    private jwtService: JwtService
   ) {}
 
   async registerUser(registerUserDto: RegisterUserDto): Promise<void> {
@@ -35,7 +35,7 @@ export class UserService {
       const payload: JwtPayload = {
         email,
         id: user.id,
-        isActive: user.isActive,
+        isActive: user.isActive
       };
       const accesToken = await this.jwtService.sign(payload);
 

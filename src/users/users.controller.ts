@@ -3,6 +3,7 @@ import { LoginDto } from './dto/login.dto';
 import { RegisterUserDto } from './dto/register-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserService } from './users.service';
+import { User } from './users.entity';
 
 @Controller('users')
 export class UserController {
@@ -19,25 +20,25 @@ export class UserController {
   }
 
   @Get()
-  getAll(): Promise<any> {
+  getAll(): Promise<User[]> {
     return this.userService.getAllUsers();
   }
 
   @Get('/active')
-  getActive(): Promise<any> {
+  getActive(): Promise<User[]> {
     return this.userService.getUsersActive();
   }
 
   @Get(':userId')
-  getMyProfile(@Param('userId') userId: string): Promise<any> {
+  getMyProfile(@Param('userId') userId: string): Promise<User> {
     return this.userService.getMyProfile(userId);
   }
 
   @Patch(':userId')
   updateUser(
     @Param('userId') userId: string,
-    @Body() updateUserDto: UpdateUserDto,
-  ): Promise<any> {
+    @Body() updateUserDto: UpdateUserDto
+  ): Promise<User> {
     return this.userService.updateUser(userId, updateUserDto);
   }
 }

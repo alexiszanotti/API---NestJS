@@ -10,7 +10,7 @@ export class EnconderService {
 
   async checkPassword(
     password: string,
-    userPassword: string,
+    userPassword: string
   ): Promise<boolean> {
     return await bcrypt.compare(password, userPassword);
   }

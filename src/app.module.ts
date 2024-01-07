@@ -10,7 +10,7 @@ import { AuthModule } from './users/users.module';
       host: 'localhost',
       port: 5000,
       username: 'root',
-      password: 'challenge',
+      password: 'password',
       database: 'database',
       autoLoadEntities: true,
       synchronize: true,

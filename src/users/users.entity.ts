@@ -2,7 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  PrimaryGeneratedColumn,
+  PrimaryGeneratedColumn
 } from 'typeorm';
 
 @Entity()
@@ -16,7 +16,7 @@ export class User {
   @Column({ length: 20, unique: true })
   email: string;
 
-  @Column({ length: 100 })
+  @Column({ length: 50 })
   password: string;
 
   @Column({ type: 'boolean', default: false })

@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserController } from './users.controller';
-import { UserService } from './users.service';
-import { UsersRepository } from './users.repository';
-import { EnconderService } from './enconder.service';
+import { EnconderService } from '../utils/enconder.service';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
+import { UsersRepository } from 'src/repositories/users.repository';
+import { UserService } from './users.service';
 import { JwtStrategy } from './jwt-strategy';
 
 @Module({

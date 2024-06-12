@@ -4,10 +4,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { LoginDto } from './dto/login.dto';
 import { RegisterUserDto } from './dto/register-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { EnconderService } from './enconder.service';
-import { JwtPayload } from './jwt-payload.interface';
-import { User } from './users.entity';
-import { UsersRepository } from './users.repository';
+import { EnconderService } from '../utils/enconder.service';
+import { JwtPayload } from '../interface/jwt-payload.interface';
+import { User } from '../entities/users.entity';
+import { UsersRepository } from '../repositories/users.repository';
 
 @Injectable()
 export class UserService {

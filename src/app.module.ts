@@ -13,9 +13,9 @@ import { AuthModule } from './users/users.module';
       password: 'password',
       database: 'database',
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: true
     }),
-    AuthModule,
-  ],
+    AuthModule
+  ]
 })
 export class AppModule {}
